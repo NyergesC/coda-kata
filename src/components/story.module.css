@@ -32,18 +32,19 @@
   background: rgba(255, 255, 255, 0.8);
   color: #34495e;
   border-radius: 0 0 12px 12px;
+  width: 100%;
+
 }
 
 .innerContent {
-  padding: 20px 0;
-  font-size: 14px;
-  line-height: 1.6;
-  font-weight: 600;
+  display: flex;
+  width: 700px;
   text-align: left;
-}
-
-body {
-  background: url('https://www.transparenttextures.com/patterns/stardust.png'),
-    linear-gradient(to bottom, #1c92d2, #f2fcfe);
-  font-family: 'Arial', sans-serif;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 500;
+  flex-direction: column;
 }

@@ -2,11 +2,11 @@ import React from 'react';
 
 const NaughtyList = ({ familyQueue, naughtyFamilies, onAddToNaughtyList, onDiscardPresents }) => {
   return (
-    <div>
+    <div style={{display:'flex', flexDirection: 'column', gap: '0.5rem', justifyContent: 'center', alignItems: 'center'}}>
       <h3>Naughty List</h3>
-      <ul>
+      <div style={{display:'flex', flexDirection: 'column', gap: '0.5rem'}}>
         {familyQueue?.map((family) => (
-          <li key={family.familyId}>
+          <li key={family.familyId} style={{listStyleType: 'none'}}>
             <input
               type="checkbox"
               checked={naughtyFamilies?.includes(family.familyId)}
@@ -15,8 +15,8 @@ const NaughtyList = ({ familyQueue, naughtyFamilies, onAddToNaughtyList, onDisca
             <label>{family.familyId}</label>
           </li>
         ))}
-      </ul>
-      <button onClick={onDiscardPresents} disabled={naughtyFamilies?.length === 0}>
+      </div>
+      <button onClick={onDiscardPresents} disabled={naughtyFamilies?.length === 0} style={{ width: '150px', marginTop: '10px', }}>
         Discard Naughty Families' Presents
       </button>
     </div>

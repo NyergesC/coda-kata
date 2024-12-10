@@ -5,6 +5,7 @@ import Sleigh from '../components/Sleigh';
 import Present from '../components/Present';
 import Story from '../components/Story';
 import styles from './UserStory.module.css';
+import { userStoryTwoText } from '../utils.js';
 
 const UserStory2 = () => {
   const [presentQueue, setPresentQueue] = useState([]);
@@ -15,6 +16,7 @@ const UserStory2 = () => {
   ]);
   const [sleighPresents, setSleighPresents] = useState([]);
   const [presentId, setPresentId] = useState(1);
+
 
   const handleNewPresent = () => {
     const newPresent = { id: presentId, name: `Present #${presentId}` };
@@ -44,16 +46,10 @@ const UserStory2 = () => {
 
   return (
     <div className={styles.container}>
-      <Story title="User Story 2 - Santa's Multi-Elf Delivery System">
-        <p>
-          Santa has asked Mrs Claus to organise a number of delivery elves who will put presents onto his Sleigh.
-          Mrs Claus will operate as a present receiver for the Toy Machines. She will then give these presents to the available delivery elves.
-          If no elves are available she will keep hold of the present until they are available.
-        </p>
-      </Story>
-      <button className={styles.button} onClick={handleNewPresent}>
+      <Story title="User Story 2 - Mrs. Claus and the Delivery Team" children={userStoryTwoText} />
+  <button className={styles.button} onClick={handleNewPresent}>
         Generate New Present
-      </button>
+      </button> 
       <div className={styles.grid}>
         <div className={styles.card}>
           <MrsClaus onReceivePresent={processPresent} workQueue={presentQueue} />

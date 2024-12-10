@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Present from '../components/Present'; 
 import Elf from '../components/Elf'; 
 import Sleigh from '../components/Sleigh';
 import Story from '../components/Story';
+import { userStoryOneText } from '../utils.js';
 import styles from './UserStory.module.css';
 
 const UserStory1 = () => {
@@ -30,14 +30,7 @@ const UserStory1 = () => {
 
   return (
     <div className={styles.container}>
-      <Story title="User Story 1 - Santa's current Delivery System">
-        <p>
-          Start off by recreating the current system Santa has. Currently his system allows a single delivery elf to 
-          move presents onto his Sleigh. Once a delivery elf has a present it will take him a while to put it onto 
-          Santa’s Sleigh. Once he has he calls back to say he’s available to transport another present.
-        </p>
-      </Story>
-
+      <Story title="User Story 1 - Santa's current Delivery System" children={userStoryOneText} />
       {/* Toy Machine */}
       <div className={styles.card}>
         <h2>Toy Machine</h2>

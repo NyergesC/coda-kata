@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import Sleigh from '../components/Sleigh';
 import Elves from '../components/Elves';
 import MrsClaus from '../components/MrsClaus';
-import Present from '../components/Present';
 import styles from './UserStory.module.css';
 import Family from '../components/Family';
 import Story from '../components/Story';
+import { userStoryThreeText } from '../utils.js';
 
 
 const UserStory3 = () => {
   const [familyQueue, setFamilyQueue] = useState([
-    { familyId: 'FamilyA', presents: [{ id: 1, state: 'unpacked' }, { id: 2, state: 'unpacked' }] },
-    { familyId: 'FamilyB', presents: [{ id: 3, state: 'unpacked' }] },
-    { familyId: 'FamilyC', presents: [{ id: 4, state: 'unpacked' }, { id: 5, state: 'unpacked' }] },
+    { familyId: '👨🏼‍👩🏼‍👧🏼 FamilyA', presents: [{ id: 1, state: 'unpacked' }, { id: 2, state: 'unpacked' }] },
+    { familyId: '👨🏽‍👩🏽‍👧🏽 FamilyB', presents: [{ id: 3, state: 'unpacked' }] },
+    { familyId: '👨🏻‍👩🏻‍👧🏻 FamilyC', presents: [{ id: 4, state: 'unpacked' }, { id: 5, state: 'unpacked' }] },
   ]);
 
   const [sleighPresents, setSleighPresents] = useState([]);
@@ -56,15 +56,7 @@ const UserStory3 = () => {
 
   return (
    <div className={styles.container}>
-        <Story title="User Story 3 - Family delivery">
-        <p>
-          Each present forms part of a families delivery, which consist of 1..N presents.
-          The Toy Machine cannot guarantee that all a families presents will be sent to Mrs Claus together. Other families presents could come in-between. 
-          Where possible, presents from different families should not be put on the sleigh independently.
-         But the delivery elves are an expensive resource so we’d prefer the requests to be interleaved rather than having them sit idle.
-         You will need to devise a strategy to allow Mrs Claus to deliver presents by family when possible.
-        </p>
-      </Story>
+        <Story title="User Story 3 - Family delivery" children={userStoryThreeText} />
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: '20px' }}>
         <Family familyQueue={familyQueue} />
         <div className={styles.card}>
