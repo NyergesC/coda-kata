@@ -1,0 +1,49 @@
+.accordion {
+  margin: 14px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c3e50;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  color: #2c3e50;
+}
+
+.content {
+  padding: 0 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.8);
+  color: #34495e;
+  border-radius: 0 0 12px 12px;
+}
+
+.innerContent {
+  padding: 20px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+  text-align: left;
+}
+
+body {
+  background: url('https://www.transparenttextures.com/patterns/stardust.png'),
+    linear-gradient(to bottom, #1c92d2, #f2fcfe);
+  font-family: 'Arial', sans-serif;
+}

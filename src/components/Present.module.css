@@ -1,0 +1,64 @@
+/* .present {
+  display: inline-block;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+} */
+
+/* Present.module.css */
+.present {
+  min-width: 80px;
+  height: auto;
+  display: inline-block;
+  background-color: #f1c40f; /* Bright Yellow - represents "Unpacked" */
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  transition: transform 0.5s, opacity 0.5s ease-in-out;
+  opacity: 1;
+  position: relative;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.present.packed {
+  background-color: #2ecc71; /* Green - represents "Packed" */
+  box-shadow: 0px 5px 15px rgba(0, 128, 0, 0.5);
+  transform: rotate(10deg);
+}
+
+.present.loaded {
+  background-color: #e74c3c; /* Red - represents "Loaded" */
+  transform: translateY(-10px) scale(1.1);
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.present-transition {
+  animation: movePresent 2s forwards;
+}
+
+@keyframes movePresent {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200px); /* Moving to the sleigh */
+  }
+}
