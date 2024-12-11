@@ -26,30 +26,28 @@ const UserStory2 = () => {
 
   // Process a present if an elf is available
   const processPresent = () => {
-    if (presentQueue.length === 0 || availableElves.every((elf) => elf.working)) return;
+    //Handle if presentQueue is empty
 
     // Find the first available elf
-    const elfIndex = availableElves.findIndex((elf) => !elf.working);
-    if (elfIndex !== -1) {
-      const updatedElves = [...availableElves];
-      updatedElves[elfIndex].working = true; // Mark the elf as working
-      setAvailableElves(updatedElves);
 
-      const [present, ...remainingQueue] = presentQueue; // Take the first present from the queue
-      setPresentQueue(remainingQueue); // Update the present queue
+    // Mark the elf as working
 
-      // Simulate the packing process
+    // Take the first present from the queue
+    // Update the present queue
+
+    // Simulate the packing process
       setTimeout(() => {
-        setSleighPresents((prev) => [...prev, { ...present, state: 'packed' }]); // Add packed present to sleigh
-        updatedElves[elfIndex].working = false; // Mark the elf as available again
-        setAvailableElves(updatedElves);
+        // Update sleighPresents: Add packed present to sleigh
+        // Mark the elf as available again
+        //update avaliableElves
       }, 2000); // Simulated packing delay
     }
-  };
+  
+  
 
   return (
     <div className={styles.container}>
-        <Story title="User Story 2 - Mrs. Claus and the Delivery Team" children={userStoryTwoText} />
+      <h1>User Story 2 - Mrs. Claus and the Delivery Team</h1>
       <button className={styles.button} onClick={handleNewPresent}>
         Generate New Present
       </button>
