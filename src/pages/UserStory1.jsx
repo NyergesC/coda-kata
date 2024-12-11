@@ -19,19 +19,18 @@ const UserStory1 = () => {
     setTimeout(() => {
       setIsElfPacking(true);
       setTimeout(() => {
-        setPresents((prev) => [...prev, `Present #${presentId}`]);
+        const present = { id: presentId, name: `Present #${presentId}` };
+        setPresents((prev) => [...prev, present]);
         setPresentId((prev) => prev + 1);
         setIsElfPacking(false); // Packing done
         setIsToyMachineGiving(false);
       }, 2500);
     }, 2000);
   };
-  
 
   return (
     <div className={styles.container}>
       <Story title="User Story 1 - Santa's current Delivery System" children={userStoryOneText} />
-      {/* Toy Machine */}
       <div className={styles.card}>
         <h2>Toy Machine</h2>
         <div className={styles.toyMachine}>
@@ -46,12 +45,10 @@ const UserStory1 = () => {
         </div>
       </div>
 
-      {/* Delivery Elf */}
       <div className={styles.card}>
         <Elf id={1} isPacking={isElfPacking} />
       </div>
 
-      {/* Santa's Sleigh */}
       <Sleigh presents={presents} />
       <div className={styles.summary}>
         <p>Currently, the sleigh has {presents.length} present{presents.length === 1 ? '' : 's'}.</p>
@@ -59,5 +56,4 @@ const UserStory1 = () => {
     </div>
   );
 };
-
-export default UserStory1;
+ export default UserStory1
