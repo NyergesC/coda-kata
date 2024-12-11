@@ -13,13 +13,13 @@ const Navigation = () => {
           <Link to="/userstory1" className={styles.navLink}>User Story 1: Get Present</Link>
         </li>
         <li className={styles.navTab}>
-          <Link to="/userstory2" className={styles.navLink}>User Story 2: Santa Sleigh</Link>
+          <Link to="/userstory2" className={styles.navLink}>User Story 2: Mrs. Claus and the Delivery Team</Link>
         </li>
         <li className={styles.navTab}>
-          <Link to="/userstory3" className={styles.navLink}>User Story 3: Santa Sleigh</Link>
+          <Link to="/userstory3" className={styles.navLink}>User Story 3: Family delivery</Link>
         </li>
         <li className={styles.navTab}>
-          <Link to="/userstory4" className={styles.navLink}>User Story 4: Santa Sleigh</Link>
+          <Link to="/userstory4" className={styles.navLink}>User Story 4: The Naughty List</Link>
         </li>
       </ul>
     </nav>
