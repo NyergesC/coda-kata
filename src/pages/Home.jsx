@@ -15,7 +15,7 @@ const Home = () => {
         </p>
         <h2 className={styles.subtitle}>🎁 How It Works:</h2>
         <ul className={styles.storyList}>
-          <li>🎁 **Presents are created** in the toy machines 🛠️.</li>
+          <li>🎁 <strong>Presents are created</strong> in the toy machines 🛠️.</li>
           <li>🤶🏻 Mrs. Claus manages **multiple elves**, assigning them tasks.</li>
           <li>🎅 <strong>Santa’s Sleigh</strong> gets packed efficiently, family by family.</li>
           <li>❌ Naughty families might lose their presents... behave well! 😉</li>
