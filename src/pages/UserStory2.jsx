@@ -47,7 +47,7 @@ const UserStory2 = () => {
 
   return (
     <div className={styles.container}>
-      <h1>User Story 2 - Mrs. Claus and the Delivery Team</h1>
+      <Story title="User Story 2: Mrs. Claus and the Delivery Team" children={userStoryTwoText} />
       <button className={styles.button} onClick={handleNewPresent}>
         Generate New Present
       </button>
