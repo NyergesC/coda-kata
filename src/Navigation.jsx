@@ -7,6 +7,9 @@ const Navigation = () => {
     <nav className={styles.navContainer}>
       <ul className={styles.navTabs}>
         <li className={styles.navTab}>
+          <Link to="/home" className={styles.navLink}>Home Page</Link>
+        </li>
+        <li className={styles.navTab}>
           <Link to="/userstory1" className={styles.navLink}>User Story 1: Get Present</Link>
         </li>
         <li className={styles.navTab}>
