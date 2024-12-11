@@ -28,18 +28,20 @@ const UserStory2 = () => {
   const processPresent = () => {
     //Handle if presentQueue is empty
 
-    // Find the first available elf
+    // Find the index of first available elf (who is not working)
+    //If statement: if the avaliable elf is found:
+        //Create a copy of the current elves array
+        // Mark the selected elf as working
+        // Update the state with the modified elves array
 
-    // Mark the elf as working
-
-    // Take the first present from the queue
-    // Update the present queue
+        // Take the first present from the queue
+        // Update the present queue by removing the first present
 
     // Simulate the packing process
       setTimeout(() => {
         // Update sleighPresents: Add packed present to sleigh
         // Mark the elf as available again
-        //update avaliableElves
+        // update the staten with the modified avaliable elves array
       }, 2000); // Simulated packing delay
     }
   
