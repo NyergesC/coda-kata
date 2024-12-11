@@ -13,7 +13,7 @@ export const userStoryOneText = (
 
 export const userStoryTwoText = (
   <>
-    <p>Santa has asked Mrs Claus to organise a number of delivery elves who will put presents onto his Sleigh.<br/>Mrs Claus will operate as a present receiver for the Toy Machines. <br />She will then give these presents to the available delivery elves. <br />If no elves are available she will keep hold of the present until they are available.</p>
+    <p>Santa has asked Mrs Claus to organise a number of delivery elves who will put presents into his Sleigh.<br/>Mrs Claus will operate as a present receiver from the Toy Machines. <br />She will then give these presents to the available delivery elves. <br />If no elves are available she will keep hold of the present until they are available.</p>
     <ul>
       🧑‍🎄 <strong>Mrs Claus' Role She acts as the <strong>present receiver</strong> from the Toy Machines.<br /></strong>
       🧝‍♀️ <strong>Elf Team: Presents are handed to <strong>available elves</strong> for sleigh loading.<br /></strong>
@@ -40,7 +40,7 @@ export const userStoryFourText = (
     <p>Santa has just received news that some families have been very naughty during the holiday period.<br /> He wants to be able to cancel presents for these families by telling Mrs Claus<br /> to discard their presents. Sleigh Interface </p>
     <ul>
       🚫 <strong>Discard Presents: Mrs Claus must discard the presents for families flagged by Santa as naughty</strong><br/>
-      🤔 <strong>Your Challenge: Use the provided interface to manage this functionality efficiently</strong>
+      🤔 <strong>Your Challenge: <li>Create a way to remove families from the naughty list and discard their presents.</li></strong><strong><li>Create a way to add families and their presents to the Sleigh.</li></strong><strong><li>Connect the flow with the Elves component.</li></strong>
     </ul>
   </>
 );

@@ -34,9 +34,10 @@ const UserStory3 = () => {
       ? [nextFamily, ...familyQueue.slice(1)] 
       : familyQueue.slice(1);
 
+    // Update FamilyQueue
     setFamilyQueue(updatedQueue);
 
-    // Assign an elf to pack the present
+    // Assign an elf to pack the present Hint: UserStory2
     const elfIndex = availableElves.findIndex((elf) => !elf.working);
     if (elfIndex !== -1) {
       const updatedElves = [...availableElves];
@@ -53,6 +54,8 @@ const UserStory3 = () => {
       }, 2000); // Simulate packing time
     }
   };
+
+  //Expected Outcome: 
 
   return (
    <div className={styles.container}>

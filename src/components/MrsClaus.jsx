@@ -1,19 +1,18 @@
 import React from 'react';
 import NaughtyList from './NaughtyList';
 
-const MrsClaus = ({
+ const MrsClaus = ({
   familyQueue,
   naughtyFamilies,
   onAddToNaughtyList,
   onDiscardPresents,
   onReceivePresent,
+  onPackNextFamily,
   workQueue,  
   isNaughty,
 }) => {
   const isWaitingDisabled = naughtyFamilies?.length > 0 ;
   const totalPresents = workQueue?.reduce((sum, family) => sum + family?.presents?.length, 0);
-
-  console.log(familyQueue)
 
   return (
     <div>
@@ -29,7 +28,7 @@ const MrsClaus = ({
         ) : <p>Mrs. Claus is currently holding {workQueue?.length} presents.</p>
          }
       </p>
-      <button onClick={onReceivePresent} disabled={isNaughty ? isWaitingDisabled : totalPresents === 0}>
+      <button onClick={isNaughty ?  onPackNextFamily : onReceivePresent} disabled={isNaughty ? isWaitingDisabled : totalPresents === 0}>
         {totalPresents > 0 ? 'Pack Next Present' : 'Wait for Elves'}
       </button>
     </div>

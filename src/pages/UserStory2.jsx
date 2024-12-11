@@ -17,50 +17,56 @@ const UserStory2 = () => {
   const [sleighPresents, setSleighPresents] = useState([]);
   const [presentId, setPresentId] = useState(1);
 
-
+  // Generate a new present and add it to the present queue
   const handleNewPresent = () => {
     const newPresent = { id: presentId, name: `Present #${presentId}` };
     setPresentQueue((prev) => [...prev, newPresent]);
-    setPresentId((prev) => prev + 1);
+    setPresentId((prev) => prev + 1); // Increment the present ID for the next present
   };
 
+  // Process a present if an elf is available
   const processPresent = () => {
     if (presentQueue.length === 0 || availableElves.every((elf) => elf.working)) return;
 
+    // Find the first available elf
     const elfIndex = availableElves.findIndex((elf) => !elf.working);
     if (elfIndex !== -1) {
       const updatedElves = [...availableElves];
-      updatedElves[elfIndex].working = true;
+      updatedElves[elfIndex].working = true; // Mark the elf as working
       setAvailableElves(updatedElves);
 
-      const [present, ...remainingQueue] = presentQueue;
-      setPresentQueue(remainingQueue);
+      const [present, ...remainingQueue] = presentQueue; // Take the first present from the queue
+      setPresentQueue(remainingQueue); // Update the present queue
 
+      // Simulate the packing process
       setTimeout(() => {
-        setSleighPresents((prev) => [...prev, { ...present, state: 'packed' }]);
-        updatedElves[elfIndex].working = false;
+        setSleighPresents((prev) => [...prev, { ...present, state: 'packed' }]); // Add packed present to sleigh
+        updatedElves[elfIndex].working = false; // Mark the elf as available again
         setAvailableElves(updatedElves);
-      }, 2000); // Simulate packing time
+      }, 2000); // Simulated packing delay
     }
   };
 
   return (
     <div className={styles.container}>
-      <Story title="User Story 2 - Mrs. Claus and the Delivery Team" children={userStoryTwoText} />
-  <button className={styles.button} onClick={handleNewPresent}>
+        <Story title="User Story 2 - Mrs. Claus and the Delivery Team" children={userStoryTwoText} />
+      <button className={styles.button} onClick={handleNewPresent}>
         Generate New Present
-      </button> 
+      </button>
       <div className={styles.grid}>
+        {/* Present Queue and Mrs. Claus */}
         <div className={styles.card}>
           <MrsClaus onReceivePresent={processPresent} workQueue={presentQueue} />
           <div className={styles.presentQueue}>
-            {presentQueue.map((present) => (
-              <Present key={present.id} id={present.id} />
+            {presentQueue.map((present, index) => (
+              <Present key={index} id={present.id} state="unpacked" />
             ))}
           </div>
         </div>
+        {/* Elves */}
         <Elves availableElves={availableElves} />
-        <Sleigh presents={sleighPresents.map((present) => present.name)} />
+        {/* Santa's Sleigh */}
+        <Sleigh presents={sleighPresents} />
       </div>
     </div>
   );
