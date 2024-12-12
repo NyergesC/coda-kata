@@ -31,31 +31,45 @@ const UserStory4 = () => {
     );
   };
 
+
   // Discard presents for families on the naughty list
   const discardPresents = () => {
-    //Filter the FamilyQueue with the naughty Families
-
-    //update the FamilyQueue
-   // Clear the naughty list after discarding presents
+    const updatedQueue = familyQueue.filter(
+      (family) => !naughtyFamilies.includes(family.familyId)
+    );
+    setFamilyQueue(updatedQueue);
+    setNaughtyFamilies([]); // Clear the naughty list after discarding presents
   };
 
   // Handle receiving presents from the elves
   const handleReceivePresent = () => {
-    // Wait if all elves are busy
+    if (availableElves.every((elf) => elf.working)) return; // Wait if all elves are busy
+
+    const nextPresent = familyQueue.flatMap((family) => family.presents).shift();
+    if (!nextPresent) return;
 
     // Simulate packing with an available elf
+    const elfIndex = availableElves.findIndex((elf) => !elf.working);
+    const updatedElves = [...availableElves];
+    updatedElves[elfIndex].working = true;
+    setAvailableElves(updatedElves);
 
     setTimeout(() => {
-    
+      setPresentQueue((prev) => [...prev, { ...nextPresent, state: 'packed' }]);
+      updatedElves[elfIndex].working = false;
+      setAvailableElves(updatedElves);
     }, 2000); // Simulated delay for packing
   };
 
-
-  const handlePackNextFamily = () => {
+    const handlePackNextFamily = () => {
+    if (familyQueue.length === 0) return;
 
     // Pack the first family's presents and remove them from the queue
-
+    const [nextFamily, ...remainingQueue] = familyQueue;
+    setPresentQueue((prev) => [...prev, ...nextFamily.presents]);
+    setFamilyQueue(remainingQueue);
   };
+
   return (
     <div className={styles.container}>
       <Story title="User Story 4 - The Naughty List" children={userStoryFourText} />

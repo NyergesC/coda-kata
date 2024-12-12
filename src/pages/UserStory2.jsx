@@ -26,9 +26,28 @@ const UserStory2 = () => {
 
   // Process a present if an elf is available
   const processPresent = () => {
-    //Handle if presentQueue is empty
+    
+     //Handle if presentQueue is empty
+    if (presentQueue.length === 0) return;
 
     // Find the index of first available elf (who is not working)
+    const firstElf = availableElves.findIndex((elf) => !elf.working);
+    
+    if (firstElf !== -1) {
+      const updatedElves = [...availableElves];
+      updatedElves[firstElf].working = true;
+      setAvailableElves(updatedElves);
+
+      const [nextPresent, ...remainingQueue] = presentQueue;
+      setPresentQueue(remainingQueue);
+
+      // Simulate packing the present
+      setTimeout(() => {
+        setSleighPresents((prev) => [...prev, { ...nextPresent, state: 'packed' }]);
+        updatedElves[firstElf].working = false;
+        setAvailableElves(updatedElves);
+      }, 2000); // Simulated packing delay
+    }
     //If statement: if the avaliable elf is found:
         //Create a copy of the current elves array
         // Mark the selected elf as working
@@ -37,7 +56,7 @@ const UserStory2 = () => {
         // Take the first present from the queue
         // Update the present queue by removing the first present
 
-    // Simulate the packing process
+        // Simulate the packing process
       setTimeout(() => {
         // Update sleighPresents: Add packed present to sleigh
         // Mark the elf as available again

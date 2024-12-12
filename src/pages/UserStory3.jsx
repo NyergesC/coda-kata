@@ -22,24 +22,39 @@ const UserStory3 = () => {
     { id: 3, working: false },
   ]);
 
-  const assignElvesToPack = () => {
-    //Handle if familyQueue is empty
+   const assignElvesToPack = () => {
+    if (familyQueue.length === 0 || availableElves.every((elf) => elf.working)) return;
 
     // Extract the first family and their presents
+    const nextFamily = familyQueue[0];
+    const presentToPack = nextFamily.presents.shift();
 
     // Remove family if all their presents are packed
+    const updatedQueue = nextFamily.presents.length > 0 
+      ? [nextFamily, ...familyQueue.slice(1)] 
+      : familyQueue.slice(1);
 
     // Update FamilyQueue
-
+    setFamilyQueue(updatedQueue);
 
     // Assign an elf to pack the present Hint: UserStory2
+    const elfIndex = availableElves.findIndex((elf) => !elf.working);
+    if (elfIndex !== -1) {
+      const updatedElves = [...availableElves];
+      updatedElves[elfIndex].working = true;
+      setAvailableElves(updatedElves);
 
-    //Simulate the packing time
       setTimeout(() => {
-       
-      }, 2000); 
-
+        setSleighPresents((prev) => [
+          ...prev,
+          { ...presentToPack, state: 'packed', familyId: nextFamily.familyId },
+        ]);
+        updatedElves[elfIndex].working = false;
+        setAvailableElves(updatedElves);
+      }, 2000); // Simulate packing time
+    }
   };
+
 
 
   return (
